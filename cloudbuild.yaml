@@ -78,7 +78,7 @@ steps:
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)"   
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - create
+  - set
   - image
   - deployment
   - odoo
