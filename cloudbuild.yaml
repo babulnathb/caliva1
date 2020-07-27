@@ -76,5 +76,15 @@ steps:
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/github_babulnathb_caliva1.g:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository github_babulnathb_caliva1.g-app
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)"   
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment
+  - odoo
+  - web=gcr.io/$PROJECT_ID/github_babulnathb_caliva1.g:${SHORT_SHA}
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
 
 # [END cloudbuild-trigger-cd]
