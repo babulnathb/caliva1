@@ -51,7 +51,6 @@ steps:
   - |
     gcloud source repos clone github_babulnathb_caliva1 &&  
     cd github_babulnathb_caliva1 &&  
-    git checkout candidate &&  
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
 
 # This step generates the new manifest
