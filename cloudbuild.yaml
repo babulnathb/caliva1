@@ -40,6 +40,17 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/github_babulnathb_caliva1.g:$SHORT_SHA'
 # [END cloudbuild]
+# # This step clones the github_babulnathb_caliva1 repository
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Clone env repository
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    gcloud source repos clone github_babulnathb_caliva1 &&  
+    cd github_babulnathb_caliva1 &&  
+    git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
+
 
      
 # This step creates the odoo pod
