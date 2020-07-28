@@ -76,8 +76,7 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - apply 
-  - -k /workspace/github_babulnathb_caliva1/
-  - -f=deploy.yaml
+  - -f=./github_babulnathb-caliva1/deploy.yaml
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
