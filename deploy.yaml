@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odoo
+spec:
+  selector:
+    matchLabels:
+      run: load-balancer
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: load-balancer
+    spec:
+      containers:
+        - name: odoo
+          image: gcr.io/affable-tangent-282111/github_babulnathb_caliva1.g:04ab1f9 
+          ports:
+            - containerPort: 8080
+              protocol: TCP
