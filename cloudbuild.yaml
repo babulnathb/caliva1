@@ -76,6 +76,16 @@ steps:
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/github_babulnathb_caliva1.g:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository github_babulnathb_caliva1.g-app
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)"   
+# This step creates the odoo service -
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - create
+  - service
+  - loadbalancer 
+  - odoo
+  - --tcp 80:80
+
+# This step creates the odoo pod
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - create
