@@ -16,5 +16,5 @@ spec:
         - name: odoo
           image: gcr.io/affable-tangent-282111/github_babulnathb_caliva1.g:f1d28a7 
           ports:
-            - containerPort: 8080
+            - containerPort: 8069
               protocol: TCP
