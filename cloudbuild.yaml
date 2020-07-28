@@ -70,13 +70,8 @@ steps:
   args:
   - '-c'
   - |
-    set -x &&  
-    cd github_babulnathb_caliva1 &&  
-    git add kubernetes.yaml &&  
-    git commit -m "Deploying image gcr.io/${PROJECT_ID}/github_babulnathb_caliva1.g:${SHORT_SHA}
-    Built from commit ${COMMIT_SHA} of repository github_babulnathb_caliva1.g-app
-    Author: $(git log --format='%an <%ae>' -n 1 HEAD)"   
-
+      ls -l
+     
 # This step creates the odoo pod
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
