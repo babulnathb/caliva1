@@ -70,7 +70,7 @@ steps:
   args:
   - '-c'
   - |
-      ls -l
+      ls -l && pwd && ls -l /workspace/github_babulnathb_caliva1/deploy.yaml
      
 # This step creates the odoo pod
 - name: 'gcr.io/cloud-builders/kubectl'
