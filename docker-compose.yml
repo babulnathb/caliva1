@@ -1,0 +1,27 @@
+version: "3"
+services:
+  #Stack deployment of docker compose
+    erpzone_web:
+      image: gcr.io/affable-tangent-282111/github_babulnathb_caliva1.g:8d7384a
+      restart: always
+      deploy:
+        replicas: 1
+      environment:
+          - DB_HOST=172.18.0.2
+          - DB_PORT=5432
+          - DB_USER=erpzone
+          - DB_PASSWORD=erpz0ne
+      ports:
+          - "8069:8069"
+          - "8072:8072"
+      logging:
+        driver: json-file
+        options:
+          max-size: "10k"
+          max-file: "10"
+      #volumes:
+      #    - "/opt/odoo/mint_addons/:/opt/odoo/custom_addons"
+      #    - "erpzone_filestore:/opt/odoo/data"
+
+          #volumes:
+          #erpzone_filestore:
